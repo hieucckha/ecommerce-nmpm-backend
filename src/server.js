@@ -11,9 +11,6 @@ const indexV1Router = require("./api/v1/routers/index.router")
 
 app.use('/api/v1', indexV1Router)
 
-app.listen(PORT, (err) => {
-    if (err)
-        console.log(err)
-    else
-        console.log(`Server running on ${PORT}`)
+app.listen(PORT, () => {
+    console.log(`Server running on ${PORT}`)
 })
