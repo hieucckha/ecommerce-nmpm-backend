@@ -1,0 +1,28 @@
+{
+    "name": "ecommerce-nmpm-backend",
+    "version": "1.0.0",
+    "description": "This is backend for e-commerce project in Introduce to Software Engineer",
+    "main": "server/server.js",
+    "scripts": {
+        "start": "gulp run"
+    },
+    "authors": [
+        {
+            "name": "Nguyen Hieu",
+            "email": "hieucckha@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "dependencies": {
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2",
+        "gulp": "^4.0.2",
+        "gulp-mocha": "^8.0.0",
+        "gulp-nodemon": "^2.5.0",
+        "gulp-todo": "^7.1.1",
+        "gulp-util": "^3.0.8",
+        "mocha": "^10.1.0",
+        "morgan": "^1.10.0",
+        "nodemon": "^2.0.20"
+    }
+}
