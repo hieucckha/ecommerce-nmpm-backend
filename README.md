@@ -15,10 +15,22 @@
   - Để ngừng container: `docker-compose -f database-compose.yml down`
   - Xem log ở container: `docker-compose -f database-compose.yml logs -t`
 
+- Tui dùng vscode **(Nhớ cài thêm eslint với prettier đê lint với format)**
+
 ## Bắt đầu code
-- Chạy lệnh `yarn run start`
+- Chạy lệnh `yarn run dev`
 
 ## Note
 
 - Xem task trên jira
 - Nhớ chuyển qua branch develop
+
+# Tài liệu xem thêm
+
+- ![Nodejs REST API](https://youtube.com/playlist?list=PLw0w5s5b9NK5vec1mvOh5grtNlCwcgO0j)
+- ![Nodejs API Authentication (JWT)](https://youtube.com/playlist?list=PLw0w5s5b9NK5m3558bDRdZoBVoV08ZpxI)
+- ![Một vài thứ trong này](https://youtube.com/playlist?list=PLw0w5s5b9NK5SUfrJ8rjIMYitT9K8WB8W)
+- 
+- ![Source code cách viết API](https://github.com/carokrny/e-commerce)
+
+- ![Git](https://youtube.com/playlist?list=PLw0w5s5b9NK7dTWqY1li4u4_dZMNeSjQv)

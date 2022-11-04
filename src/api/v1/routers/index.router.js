@@ -1,12 +1,13 @@
-const express = require("express")
-const router = express.Router()
+const express = require('express');
 
-const userRouter = require('./user.router')
+const router = express.Router();
 
-router.use(userRouter)
+const userRouter = require('./user.router');
+
+router.use(userRouter);
 
 router.get('/', (req, res, next) => {
-    res.send("Hello this is index of api")
-})
+  res.send('Hello this is index of api v1');
+});
 
-module.exports = router
+module.exports = router;

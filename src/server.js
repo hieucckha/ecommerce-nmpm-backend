@@ -1,16 +1,10 @@
-require("dotenv").config();
-const express = require("express");
-const morgan = require("morgan");
+require('module-alias/register'); // for import module alias '@src'
 
-const app = express();
-const PORT = process.env.PORT || 3000;
+const dotenvConfig = require('@src/configs/dotenv.config');
+const app = require('./app');
 
-app.use(morgan('combined'))
+const port = dotenvConfig.PORT || 3000;
 
-const indexV1Router = require("./api/v1/routers/index.router")
-
-app.use('/api/v1', indexV1Router)
-
-app.listen(PORT, () => {
-    console.log(`Server running on ${PORT}`)
-})
+app.listen(port, () => {
+  console.log(`Server start at port:${port}`);
+});
