@@ -27,10 +27,10 @@
 
 # Tài liệu xem thêm
 
-- ![Nodejs REST API](https://youtube.com/playlist?list=PLw0w5s5b9NK5vec1mvOh5grtNlCwcgO0j)
-- ![Nodejs API Authentication (JWT)](https://youtube.com/playlist?list=PLw0w5s5b9NK5m3558bDRdZoBVoV08ZpxI)
-- ![Một vài thứ trong này](https://youtube.com/playlist?list=PLw0w5s5b9NK5SUfrJ8rjIMYitT9K8WB8W)
+- [Nodejs REST API](https://youtube.com/playlist?list=PLw0w5s5b9NK5vec1mvOh5grtNlCwcgO0j)
+- [Nodejs API Authentication (JWT)](https://youtube.com/playlist?list=PLw0w5s5b9NK5m3558bDRdZoBVoV08ZpxI)
+- [Một vài thứ trong này](https://youtube.com/playlist?list=PLw0w5s5b9NK5SUfrJ8rjIMYitT9K8WB8W)
 - 
-- ![Source code cách viết API](https://github.com/carokrny/e-commerce)
+- [Source code cách viết API](https://github.com/carokrny/e-commerce)
 
-- ![Git](https://youtube.com/playlist?list=PLw0w5s5b9NK7dTWqY1li4u4_dZMNeSjQv)
+- [Git](https://youtube.com/playlist?list=PLw0w5s5b9NK7dTWqY1li4u4_dZMNeSjQv)
