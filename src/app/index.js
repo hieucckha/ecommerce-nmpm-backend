@@ -1,9 +1,9 @@
 const express = require('express');
-const useMiddlewareExpress = require('./express.app');
+const { attachMiddleware } = require('./express.app');
 const indexV1Router = require('../api/v1/routers/index.router');
 
 const app = express();
-useMiddlewareExpress(app);
+attachMiddleware(app);
 
 app.use('/api/v1', indexV1Router);
 

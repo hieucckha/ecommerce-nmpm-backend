@@ -1,0 +1,38 @@
+###
+GET http://localhost:3000/api/v1/
+
+###
+GET http://localhost:3000/api/v1/sessions
+
+###
+POST http://localhost:3000/api/v1/login
+Content-Type: application/json
+
+{
+  "username": "conpassheo",
+  "password": "123456"
+}
+
+###
+POST http://localhost:3000/api/v1/login
+Content-Type: application/json
+
+{
+  "username": "vuongquocpulu",
+  "password": "123456"
+}
+
+###
+POST http://localhost:3000/api/v1/register
+Content-Type: application/json
+
+{
+  "username": "adlksfjasjdfkl;ajseu",
+  "password": "123456"
+}
+
+###
+POST http://localhost:3000/api/v1/logout
+
+###
+GET http://localhost:3000/api/v1/users
