@@ -1,8 +1,6 @@
-const { Pool } = require('pg');
-const { postgres } = require('../configs/credentialDB.config');
+const pgp = require('pg-promise')();
+const { postgres: credential } = require('../configs/credentialDB.config');
 
-const pool = new Pool(postgres);
+const db = pgp(credential);
 
-module.exports = {
-  query: async (text, params, callback) => pool.query(text, params, callback),
-};
+module.exports = db;

@@ -1,74 +1,63 @@
+const { v4: uuidv4 } = require('uuid');
+const bcrypt = require('bcrypt');
+
 const db = require('@src/db/postgres.db');
 
 module.exports = {
-  getId: async (uname) => {
+  getID: async (username) => {
     try {
-      const statement = `
-        SELECT id FROM users WHERE uname=$1
-      `;
+      const { id } = await db.one(
+        `
+        SELECT id
+        FROM users
+        WHERE username=$1
+      `,
+        [username]
+      );
 
-      const result = await db.query(statement, [uname]);
-
-      if (result.rows.length > 0) return result.rows[0].id;
-      return null;
+      return id;
     } catch (err) {
-      throw new Error(err);
+      console.log('userModel.getID###', err);
     }
+
+    return null;
   },
-  getPasswd: async (uname) => {
+  getHashPassword: async (id) => {
     try {
-      const statement = `
-        SELECT passwd FROM users WHERE uname=$1
-      `;
-
-      const result = await db.query(statement, [uname]);
-
-      if (result.rows.length > 0) return result.rows[0].passwd;
-      return null;
+      const { password } = await db.one(
+        `
+        SELECT password
+        FROM users
+        WHERE id=$1
+      `,
+        [id]
+      );
+      return password;
     } catch (err) {
-      throw new Error(err);
+      console.log('userModel.getHashPassword###', err);
     }
+
+    return null;
   },
-  getAll: async () => {
+  create: async (username, password) => {
     try {
-      const statement = `
-        SELECT * FROM users
-      `;
+      const salt = await bcrypt.genSalt(10);
+      const hashPassword = await bcrypt.hash(password, salt);
 
-      const result = await db.query(statement);
-      return result.rows;
-    } catch (err) {
-      throw new Error(err);
-    }
-  },
-  create: async (id, name, passwd) => {
-    try {
-      const statement = `
-          INSERT INTO users (id, uname, passwd)
-          VALUES ($1, $2, $3)
-          RETURNING *
-        `;
-      const result = await db.query(statement, [id, name, passwd]);
+      const { id } = await db.one(
+        `
+        INSERT INTO users (id, username, password)\
+        VALUES ($1, $2, $3)\
+        RETURNING id
+      `,
+        [uuidv4(), username, hashPassword]
+      );
 
-      if (result.rows.length > 0) return result.rows[0];
-      return null;
+      return id;
     } catch (err) {
-      throw new Error(err);
+      console.log('userModel.create###', err);
     }
-  },
-  update: async (id, name, pw) => {
-    try {
-      const statement = `
-            UPDATE users 
-            SET uname=$2, passwd=$3
-            WHERE id=$1    
-        `;
-      const result = await db.query(statement, [id, name, pw]);
 
-      if (result.rows.length > 0) return result.rows[0];
-      return null;
-    } catch (err) {
-      throw new Error(err);
-    }
+    return null;
   },
 };

@@ -1,39 +1,36 @@
+const passport = require('passport');
 const LocalStrategy = require('passport-local');
 
-const { passport } = require('@src/app/express.app');
-
-const { checkUnameExist, checkUserValid } = require('../services/auth.service');
+const { checkUserExists, checkUserValid } = require('../services/user.service');
 
 passport.use(
-  // eslint-disable-next-line consistent-return
-  new LocalStrategy(async (username, password, done) => {
+  new LocalStrategy(async (username, password, cb) => {
     try {
-      const isExist = await checkUnameExist(username);
-      if (!isExist) return done(null, false);
+      const id = await checkUserExists(username);
+      if (!id) return cb(null, false);
 
-      const isValid = await checkUserValid(username, password);
-      if (!isValid) {
-        return done(null, false);
-      }
+      const isValid = await checkUserValid(id, password);
+      if (!isValid) return cb(null, false);
+
+      return cb(null, {
+        id,
+        username,
+      });
     } catch (err) {
       console.log(err);
     }
-    console.log('verify :>> ', username);
 
-    return done(null, {
-      username,
-      password,
-    });
+    return cb(null, false);
   })
 );
 
-passport.serializeUser((user, done) => {
-  console.log('serializeUser :>> ', user, typeof user);
-  done(null, user);
+passport.serializeUser((user, cb) => {
+  console.log('serializeUser###', user);
+  cb(null, { id: user.id, username: user.username });
 });
 
 passport.deserializeUser((user, done) => {
-  console.log('deserializeUser :>> ', user, typeof user);
+  console.log('deserializeUser###', user);
   done(null, user);
 });
 

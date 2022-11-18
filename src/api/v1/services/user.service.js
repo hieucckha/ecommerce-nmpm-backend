@@ -1,24 +1,35 @@
 const bcrypt = require('bcrypt');
-const { v4: uuidv4 } = require('uuid');
 
 const userModel = require('../models/user.model');
 
 module.exports = {
-  getAllUsers: async () => {
-    try {
-      return await userModel.getAll();
-    } catch (err) {
-      throw new Error(err);
-    }
-  },
-  create: async (uname, passwd) => {
-    try {
-      const salt = await bcrypt.genSalt(10);
-      const hashPasswd = await bcrypt.hash(passwd, salt);
+  createUser: async (username, password) => {
+    const id = await userModel.create(username, password);
 
-      return userModel.create(uuidv4(), uname, hashPasswd);
+    return id;
+  },
+  checkUserExists: async (username) => {
+    try {
+      const id = await userModel.getID(username);
+      if (id) return id;
     } catch (err) {
-      throw new Error(err);
+      console.log('checkUserExists###', err);
     }
+
+    return null;
+  },
+  checkUserValid: async (id, password) => {
+    try {
+      const hashPassword = await userModel.getHashPassword(id);
+      const rtn = await bcrypt.compare(password, hashPassword);
+      console.log(rtn);
+      if (rtn) {
+        return true;
+      }
+    } catch (err) {
+      console.log('checkUserValid###', err);
+    }
+
+    return false;
   },
 };

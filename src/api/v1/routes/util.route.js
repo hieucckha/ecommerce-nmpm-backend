@@ -4,7 +4,6 @@ const router = express.Router();
 
 const utilController = require('../controllers/util.controller');
 
-router.get('/', utilController.getIndex);
-router.get('/sessions', utilController.getSessions);
+router.get('/checkhealth', utilController.checkHealth);
 
 module.exports = router;

@@ -1,10 +1,11 @@
 module.exports = {
   postgres: {
-    user: 'root',
-    password: '123456',
     host: 'localhost',
     port: 5432,
     database: 'sandbox',
+    user: 'root',
+    password: '123456',
+    max: 30,
   },
   redis: {
     port: 6379,
