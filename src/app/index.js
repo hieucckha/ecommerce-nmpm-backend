@@ -6,6 +6,12 @@ const app = express();
 app.use(require('./middleware.app'));
 
 // route
+app.get('/', (req, res, next) => {
+  res.status(200).json({
+    status: "Success",
+    message: "This is from index base :p"
+  })
+})
 app.use('/api/v1', require('../api/v1'));
 
 // catch error
