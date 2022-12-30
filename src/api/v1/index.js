@@ -8,7 +8,8 @@ const routes = [
   require("./routes/util.route"),
   require("./routes/order.route"),
   require("./routes/shop.route"),
-  require("./routes/user.route")
+  require("./routes/user.route"),
+  require("./routes/product.route")
 ];
 
 router.use(routes);

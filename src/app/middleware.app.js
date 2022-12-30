@@ -3,8 +3,8 @@ const morgan = require('morgan');
 const compression = require('compression');
 const session = require('express-session');
 const passport = require('passport');
-const RedisStore = require('connect-redis')(session);
-const redisClient = require('../db/redis.db');
+// const RedisStore = require('connect-redis')(session);
+// const redisClient = require('../db/redis.db');
 
 const { KEY_SESSION } = require('../configs/dotenv.config');
 
@@ -24,7 +24,7 @@ module.exports = [
   }),
   session({
     secret: KEY_SESSION,
-    store: new RedisStore({ client: redisClient }),
+    // store: new RedisStore({ client: redisClient }),
     resave: true,
     saveUninitialized: true,
     cookie: {
