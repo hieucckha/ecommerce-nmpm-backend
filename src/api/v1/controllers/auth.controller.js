@@ -12,14 +12,21 @@ module.exports = {
     });
   },
   signup: async (req, res, next) => {
-    const { username, password } = req.body;
-    if (!username || !password) return next(createError.BadRequest());
+    const { username, email, password, name, address } = req.body;
+    if (!username || !password || !email || !name || !address)
+      return next(createError.BadRequest());
 
     const isExist = await userService.checkUserExists(username);
     if (isExist)
       return next(createError.Conflict(`${username} is ready been register`));
 
-    const id = await userService.createUser(username, password);
+    const id = await userService.createUser(
+      username,
+      email,
+      password,
+      name,
+      address
+    );
 
     return req.login(
       {

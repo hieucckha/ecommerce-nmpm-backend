@@ -1,4 +1,8 @@
 yarn*
 
+.idea/
 .vscode/
 node_modules/
+test_json/
+
+ecommer.sesion.sql

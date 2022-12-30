@@ -1,0 +1,17 @@
+###
+POST http://localhost:3000/api/v1/shop/create
+Content-Type: application/json
+
+{
+  "userId": "a59f91b6-07fb-4d1d-b498-8c0d06228d10",
+  "name": "CellphoneS",
+  "image": null
+}
+
+###
+GET http://localhost:3000/api/v1/shop/info
+Content-Type: application/json
+
+{
+  "shopId": "3bdb8cd4-f8ae-4a99-b8cb-bf431f2ae9c6"
+}

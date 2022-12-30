@@ -1,0 +1,7 @@
+###
+GET http://localhost:3000/api/v1/view_info
+Content-Type: application/json
+
+{
+  "userId": "df604262-4d47-48ff-9804-90b5921937e6"
+}

@@ -1,0 +1,17 @@
+###
+GET http://localhost:3000/
+
+###
+GET http://localhost:3000/user/add
+
+###
+GET http://localhost:3000/user/delete_all
+
+###
+GET http://localhost:3000/user/find_all
+
+###
+GET http://localhost:3000/shop/create
+
+###
+GET http://localhost:3000/shop/id

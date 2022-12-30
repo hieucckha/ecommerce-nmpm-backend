@@ -2,7 +2,7 @@ module.exports = {
   postgres: {
     host: 'localhost',
     port: 5432,
-    database: 'sandbox',
+    database: 'ecommerce_db',
     user: 'root',
     password: '123456',
     max: 30,
