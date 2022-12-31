@@ -15,8 +15,28 @@ module.exports = {
     return res.status(200).json({ status: 'Success' });
   },
   getInfoShop: async (req, res, next) => {
-    const { shopId } = req.body;
-    console.log(shopId);
+    const { shopId } = req.query;
+
     const result = await shopService.getInfoShop(shopId);
+
+    res.status(200).json({
+      status: 'Success',
+      info: result,
+    });
+  },
+  checkShop: async (req, res, next) => {
+    const { userId } = req.query;
+
+    const result = await shopService.checkUserHasShop(userId);
+
+    if (result === null)
+      return res.status(400).json({
+        status: 'Fail',
+        message: `User with id:${userId} not had shop`,
+      });
+    res.status(200).json({
+      status: 'Success',
+      message: `User with id:${userId} had shop`,
+    });
   },
 };

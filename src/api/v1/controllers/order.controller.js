@@ -24,21 +24,21 @@ module.exports = {
   }
    */
   getCurrentOrder: async (req, res, next) => {
-    const { orderId } = req.body;
+    const { orderId } = req.query;
 
     const result = await orderService.getCurrnetOrder(orderId);
 
     res.status(200).json({ status: 'Success', order: result });
   },
   getUserOrders: async (req, res, next) => {
-    const { userId } = req.body;
+    const { userId } = req.query;
 
     const result = await orderService.getUserOrders(userId);
 
     res.status(200).json({ status: 'Success', listOrders: result });
   },
   getShopOrders: async (req, res, next) => {
-    const { shopId } = req.body;
+    const { shopId } = req.query;
 
     const result = await orderService.getShopOrders(shopId);
 

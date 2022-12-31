@@ -2,7 +2,7 @@ const productService = require('../services/product.service');
 
 module.exports = {
   getInfo: async (req, res, next) => {
-    const { productId } = req.body;
+    const { productId } = req.query;
 
     const info = await productService.getInfo(productId);
 
@@ -27,8 +27,8 @@ module.exports = {
     });
   },
   getListShop: async (req, res, next) => {
-    const { shopId } = req.body;
-
+    const { shopId } = req.query;
+    console.log(shopId);
     const products = await productService.getListShop(shopId);
 
     if (products === null) {

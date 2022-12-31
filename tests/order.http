@@ -1,27 +1,9 @@
 ###
-GET http://localhost:5000/api/v1/order
-Content-Type: application/json
-
-{
-  "orderId": "aeeb8219-d0f5-42cd-a970-50cce5c862b9"
-}
-
+GET http://localhost:5000/api/v1/order?orderId=aeeb8219-d0f5-42cd-a970-50cce5c862b9
 ###
-GET http://localhost:5000/api/v1/order/user/getList
-Content-Type: application/json
-
-{
-  "userId": "bb9e74f3-e0e9-40a8-a633-6e026fccaf1b"
-}
-
+GET http://localhost:5000/api/v1/order/user/getList?userId=bb9e74f3-e0e9-40a8-a633-6e026fccaf1b
 ###
-GET http://localhost:5000/api/v1/order/shop/getList
-Content-Type: application/json
-
-{
-  "shopId": "bc3295ef-4622-4829-b91c-e40d382c696d"
-}
-
+GET http://localhost:5000/api/v1/order/shop/getList?shopId=bc3295ef-4622-4829-b91c-e40d382c696d
 ###
 POST http://localhost:5000/api/v1/order/user/create
 Content-Type: application/json
@@ -58,7 +40,6 @@ Content-Type: application/json
 		}
 	]
 }
-
 ###
 PATCH http://localhost:5000/api/v1/order/shop/updateStatus
 Content-Type: application/json

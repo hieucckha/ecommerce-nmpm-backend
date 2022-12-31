@@ -1,41 +1,14 @@
 ### Success
-GET http://localhost:5000/api/v1/product/getInfo
-Content-Type: application/json
-
-{
-  "productId": "0dcb49f1-00fe-4438-bace-fc2ca81a4a63"
-}
+GET http://localhost:5000/api/v1/product/getInfo?productId=0dcb49f1-00fe-4438-bace-fc2ca81a4a63
 ### Success
-GET http://localhost:5000/api/v1/product/getInfo
-Content-Type: application/json
-
-{
-  "productId": "76c65f92-63cf-46c8-8a3f-8536f64ad19c"
-}
+GET http://localhost:5000/api/v1/product/getInfo?productId=76c65f92-63cf-46c8-8a3f-8536f64ad19c
 ### Not found product with productId:
-GET http://localhost:5000/api/v1/product/getInfo
-Content-Type: application/json
-
-{
-  "productId": "3bdb8cd4-f8ae-4a99-b8cb-bf431f2ae9c6"
-}
-
+GET http://localhost:5000/api/v1/product/getInfo?productId=3bdb8cd4-f8ae-4a99-b8cb-bf431f2ae9c6
 
 ### Success
 GET http://localhost:5000/api/v1/product/getList
 
-
 ### Success
-GET http://localhost:5000/api/v1/product/getListShop
-Content-Type: application/json
-
-{
-  "shopId": "3bdb8cd4-f8ae-4a99-b8cb-bf431f2ae9c6"
-}
+GET http://localhost:5000/api/v1/product/getListShop?shopId=3bdb8cd4-f8ae-4a99-b8cb-bf431f2ae9c6
 ### Not found product with shopId:
-GET http://localhost:5000/api/v1/product/getListShop
-Content-Type: application/json
-
-{
-  "shopId": "c564a01c-a640-4d77-a5b5-0c82f5571759"
-}
+GET http://localhost:5000/api/v1/product/getListShop?shopId=c564a01c-a640-4d77-a5b5-0c82f5571759

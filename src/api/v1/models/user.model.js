@@ -8,7 +8,7 @@ module.exports = {
     try {
       const { id } = await db.one(
         `
-        SELECT id
+        SELECT user_id
         FROM users
         WHERE username=$1
       `,
@@ -28,7 +28,7 @@ module.exports = {
         `
         SELECT password
         FROM users
-        WHERE id=$1
+        WHERE user_id=$1
       `,
         [id]
       );
@@ -46,7 +46,7 @@ module.exports = {
 
       const { id } = await db.one(
         `
-        INSERT INTO users (id, username, password)\
+        INSERT INTO users (user_id, username, password)\
         VALUES ($1, $2, $3)\
         RETURNING id
       `,

@@ -8,7 +8,11 @@ module.exports = {
       if (err) {
         return next(err);
       }
-      return res.redirect('/checkhealth');
+
+      return res.status(200).json({
+        status: 'Success',
+      });
+      // return res.redirect('/checkhealth');
     });
   },
   signup: async (req, res, next) => {
@@ -35,7 +39,10 @@ module.exports = {
       },
       (err) => {
         if (err) next(err);
-        res.redirect('/checkhealth');
+        res.status(200).json({
+          status: 'Success',
+        });
+        // res.redirect('/checkhealth');
       }
     );
   },

@@ -38,8 +38,8 @@ module.exports = {
           Where shop_id = $1
       `;
       console.log('Here');
-      const result = await db.query(statement, [shopId]);
-      return result.shop_id;
+      const result = await db.oneOrNone(statement, [shopId]);
+      return result;
     } catch (err) {
       throw new Error(err);
     }
