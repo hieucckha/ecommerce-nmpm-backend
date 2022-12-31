@@ -5,6 +5,7 @@ module.exports = {
     try {
       return await productModel.getInfo(productId);
     } catch (err) {
+      console.log('Not found in service');
       return null;
     }
   },

@@ -3,7 +3,7 @@ const productService = require('../services/product.service');
 module.exports = {
   getInfo: async (req, res, next) => {
     const { productId } = req.body;
-
+    
     const info = await productService.getInfo(productId);
 
     if (info === null) {

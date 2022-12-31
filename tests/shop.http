@@ -1,5 +1,5 @@
 ###
-POST http://localhost:3000/api/v1/shop/create
+POST http://localhost:5000/api/v1/shop/create
 Content-Type: application/json
 
 {
@@ -9,7 +9,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/api/v1/shop/info
+GET http://localhost:5000/api/v1/shop/info
 Content-Type: application/json
 
 {

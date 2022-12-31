@@ -1,5 +1,5 @@
 ###
-GET http://localhost:3000/api/v1/view_info
+GET http://localhost:5000/api/v1/view_info
 Content-Type: application/json
 
 {
