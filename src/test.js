@@ -7,7 +7,7 @@ const shopsModel = require('./api/v1/models/shops.model');
 const shopService = require('./api/v1/services/shop.service');
 
 const app = express();
-const port = 3000;
+const port = 5000;
 // add account random
 app.get('/user/add', async (req, res) => {
   for (let i = 0; i < 2; i++) {
@@ -80,6 +80,6 @@ app.get('/shop/id', async (req, res) => {
   res.send(query);
 });
 
-app.listen(port || 3000, () => {
+app.listen(port || 5000, () => {
   console.log(`Server start at port:${port}`);
 });

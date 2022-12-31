@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const morgan = require('morgan');
 const compression = require('compression');
 const session = require('express-session');
@@ -10,6 +11,7 @@ const { KEY_SESSION } = require('../configs/dotenv.config');
 
 module.exports = [
   morgan('dev'),
+  cors(),
   express.json(),
   express.urlencoded({
     extended: true,
