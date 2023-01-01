@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 const bcrypt = require('bcrypt');
-const { v4: uuidv4 } = require("uuid");
+const { v4: uuidv4 } = require('uuid');
 
 const userModel = require('../models/user.model');
 const usersModel = require('../models/users.model');
@@ -14,7 +14,8 @@ module.exports = {
       email,
       password,
       name,
-      address);
+      address
+    );
 
     return id;
   },
@@ -48,7 +49,6 @@ module.exports = {
       console.log(infor);
       if (infor) return infor;
     } catch (err) {
-
       console.log('get information for user ###', err);
     }
 

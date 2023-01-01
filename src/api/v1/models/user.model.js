@@ -6,16 +6,15 @@ const db = require('@src/db/postgres.db');
 module.exports = {
   getID: async (username) => {
     try {
-      const { id } = await db.one(
-        `
+      const sql = `
         SELECT user_id
         FROM users
-        WHERE username=$1
-      `,
-        [username]
-      );
+        WHERE username = $1
+      `;
 
-      return id;
+      const result = await db.one(sql, [username]);
+
+      return result.user_id;
     } catch (err) {
       console.log('userModel.getID###', err);
     }

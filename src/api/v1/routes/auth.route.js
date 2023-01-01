@@ -12,8 +12,10 @@ router.post('/login', function (req, res, next) {
       return next(err);
     }
     if (!user) {
+      console.log(user, info);
       return res.status(400).json({
         status: 'Failed',
+        message: 'Not found user',
       });
     }
 
@@ -21,7 +23,10 @@ router.post('/login', function (req, res, next) {
       if (err) {
         return next(err);
       }
-      return res.redirect('/users/' + user.username);
+      return res.status(200).json({
+        status: 'Success',
+        message: 'Login success',
+      });
     });
   })(req, res, next);
 });
