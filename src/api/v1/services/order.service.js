@@ -4,8 +4,9 @@ const orderModel = require('../models/orders.model');
 const orderDetailModel = require('../models/order_detail.model');
 
 module.exports = {
-  getCurrnetOrder: async (orderId) => {
+  getCurrentOrder: async (orderId) => {
     const result = await orderModel.getByOrderId(orderId);
+
     return result;
   },
   createOrderShop: async (userId, shopId, address, listProduct) => {

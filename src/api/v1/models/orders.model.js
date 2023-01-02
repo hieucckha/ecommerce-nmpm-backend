@@ -1,6 +1,53 @@
 const db = require('@src/db/postgres.db');
 
 module.exports = {
+  getByOrderId: async (orderId) => {
+    try {
+      const statement = `
+        SELECT *
+        FROM orders oder
+          join order_detail od on oder.order_id = od.order_id
+        where oder.order_id = $1
+      `;
+      const result = await db.manyOrNone(statement, [orderId]);
+
+      return result;
+    } catch (err) {
+      // throw new Error(err);
+      console.error(err);
+    }
+  },
+  getOrdersByUserId: async (userId) => {
+    try {
+      const statement = `
+          SELECT *
+          FROM orders join order_detail od on orders.order_id = od.order_id
+          where user_id = $1
+        `;
+
+      const result = await db.manyOrNone(statement, [userId]);
+
+      return result;
+    } catch (err) {
+      // throw new Error(err);
+      console.error(err);
+    }
+  },
+  getOrdersByShopId: async (shopId) => {
+    try {
+      const statement = `
+          SELECT *
+          FROM orders join order_detail od on orders.order_id = od.order_id
+          where shop_id = $1`;
+
+      const result = await db.manyOrNone(statement, [shopId]);
+
+      return result;
+    } catch (err) {
+      // throw new Error(err);
+      console.error(err);
+    }
+  },
   createOrder: async (
     id,
     shopId,
@@ -45,51 +92,6 @@ module.exports = {
       return result;
     } catch (err) {
       throw new Error(err);
-    }
-  },
-  getOrdersByUserId: async (userId) => {
-    try {
-      const statement = `
-          SELECT *
-          FROM orders
-                   join order_detail od on orders.order_id = od.order_id
-          where user_id = $1`;
-
-      const result = await db.manyOrNone(statement, [userId]);
-
-      return result;
-    } catch (err) {
-      // throw new Error(err);
-      console.error(err);
-    }
-  },
-  getOrdersByShopId: async (shopId) => {
-    try {
-      const statement = `
-          SELECT *
-          FROM orders
-          where shop_id = $1`;
-
-      const result = await db.manyOrNone(statement, [shopId]);
-
-      return result;
-    } catch (err) {
-      // throw new Error(err);
-      console.error(err);
-    }
-  },
-  getByOrderId: async (orderId) => {
-    try {
-      const statement = `
-          SELECT *
-          FROM orders
-          where order_id = $1`;
-      const result = await db.oneOrNone(statement, [orderId]);
-
-      return result;
-    } catch (err) {
-      // throw new Error(err);
-      console.error(err);
     }
   },
   updateStatus: async (orderId, status) => {

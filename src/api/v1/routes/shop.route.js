@@ -3,8 +3,9 @@ const shopController = require('../controllers/shop.controller');
 
 const router = express.Router();
 
-router.post('/shop/create', shopController.createShop);
-router.get('/shop/info', shopController.getInfoShop);
 router.get('/shop/isShop', shopController.checkShop);
+router.get('/shop/info', shopController.getInfoShop);
+router.post('/shop/create', shopController.createShop);
+router.post('/shop/addProduct', shopController.addProduct);
 
 module.exports = router;

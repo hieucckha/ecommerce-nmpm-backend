@@ -37,7 +37,7 @@ module.exports = {
           FROM shops
           Where shop_id = $1
       `;
-      console.log('Here');
+
       const result = await db.oneOrNone(statement, [shopId]);
       return result;
     } catch (err) {

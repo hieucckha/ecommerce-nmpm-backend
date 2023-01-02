@@ -15,3 +15,17 @@ GET http://localhost:5000/api/v1/shop/info?shopId=3bdb8cd4-f8ae-4a99-b8cb-bf431f
 GET http://localhost:5000/api/v1/shop/isShop?userId=df604262-4d47-48ff-9804-90b5921937e6
 ### Fail
 GET http://localhost:5000/api/v1/shop/isShop?userId=3bdb8cd4-f8ae-4a99-b8cb-bf431f2ae9c6
+
+### addProduct
+POST http://localhost:5000/api/v1/shop/addProduct
+Content-Type: application/json
+
+{
+  "shopId": "3bdb8cd4-f8ae-4a99-b8cb-bf431f2ae9c6",
+  "categoryId": "bf8a16dd-48d8-49ef-ab42-e5a497fb16df",
+  "name": "Dien thoai vo dich vu tru",
+  "description": "Day la dien thoai sieu cap vo dich",
+  "price": "1234978",
+  "remaining_stock": "1000"
+}
+

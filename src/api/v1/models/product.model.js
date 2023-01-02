@@ -43,4 +43,35 @@ module.exports = {
       throw new Error(err);
     }
   },
+  create: async (
+    productId,
+    shopId,
+    categoryId,
+    name,
+    description,
+    image,
+    price,
+    remainingStock
+  ) => {
+    try {
+      const sql = `
+        INSERT INTO products (product_id, shop_id, category_id, name, description, image, price, remaining_stock, rating)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+      `;
+
+      const result = await db.none(sql, [
+        productId,
+        shopId,
+        categoryId,
+        name,
+        description,
+        image,
+        price,
+        remainingStock,
+        null,
+      ]);
+    } catch (err) {
+      console.log(err);
+    }
+  },
 };

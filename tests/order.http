@@ -1,5 +1,5 @@
 ###
-GET http://localhost:5000/api/v1/order?orderId=aeeb8219-d0f5-42cd-a970-50cce5c862b9
+GET http://localhost:5000/api/v1/order?orderId=32775732-e578-4d4e-ab2e-5d1e6c52b094
 ###
 GET http://localhost:5000/api/v1/order/user/getList?userId=bb9e74f3-e0e9-40a8-a633-6e026fccaf1b
 ###
@@ -9,36 +9,30 @@ POST http://localhost:5000/api/v1/order/user/create
 Content-Type: application/json
 
 {
-	"userId": "bb9e74f3-e0e9-40a8-a633-6e026fccaf1b",
-	"address": "135 Tran Hung Dao",
-	"listShop": [
+  "userId": "bb9e74f3-e0e9-40a8-a633-6e026fccaf1b",
+  "address": "135 Tran Hung Dao",
+  "products": [
     {
-			"shopId": "3bdb8cd4-f8ae-4a99-b8cb-bf431f2ae9c6",
-			"listProductOrder": [
-        {
-          "productId": "0dcb49f1-00fe-4438-bace-fc2ca81a4a63",
-          "unitPrice": 50000,
-          "quantity": 1
-			  },
-        {
-          "productId": "76c65f92-63cf-46c8-8a3f-8536f64ad19c",
-          "unitPrice": 55000,
-          "quantity": 2
-			  }]
-		},
-		{
-			"shopId": "bc3295ef-4622-4829-b91c-e40d382c696d",
-			"listProductOrder": [{
-				"productId": "666fd934-9a5d-4e90-8c40-91f884621584",
-				"unitPrice": 57000,
-				"quantity": 1
-			}, {
-				"productId": "f3fd76c5-7e9b-4be1-a10e-fb2984964ea0",
-				"unitPrice": 57000,
-				"quantity": 2
-			}]
-		}
-	]
+      "productId": "0dcb49f1-00fe-4438-bace-fc2ca81a4a63",
+      "unitPrice": 50000,
+      "quantity": 1
+    },
+    {
+      "productId": "76c65f92-63cf-46c8-8a3f-8536f64ad19c",
+      "unitPrice": 55000,
+      "quantity": 2
+    },
+    {
+      "productId": "666fd934-9a5d-4e90-8c40-91f884621584",
+      "unitPrice": 57000,
+      "quantity": 1
+    },
+    {
+      "productId": "f3fd76c5-7e9b-4be1-a10e-fb2984964ea0",
+      "unitPrice": 57000,
+      "quantity": 2
+    }
+  ]
 }
 ###
 PATCH http://localhost:5000/api/v1/order/shop/updateStatus

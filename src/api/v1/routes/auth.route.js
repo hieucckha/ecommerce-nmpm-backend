@@ -1,6 +1,7 @@
 const express = require('express');
 
 const authController = require('../controllers/auth.controller');
+const userService = require('../services/user.service');
 const passport = require('../middlewares/passport.middleware');
 
 const router = express.Router();
@@ -23,9 +24,11 @@ router.post('/login', function (req, res, next) {
       if (err) {
         return next(err);
       }
+
       return res.status(200).json({
         status: 'Success',
         message: 'Login success',
+        user,
       });
     });
   })(req, res, next);

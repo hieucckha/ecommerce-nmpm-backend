@@ -1,3 +1,4 @@
+const { v4: uuidv4 } = require('uuid');
 const productModel = require('../models/product.model');
 
 module.exports = {
@@ -18,6 +19,30 @@ module.exports = {
   getListShop: async (shopId) => {
     try {
       return await productModel.getListShop(shopId);
+    } catch (err) {
+      return null;
+    }
+  },
+  create: async (
+    shopId,
+    categoryId,
+    name,
+    description,
+    image,
+    price,
+    remainingStock
+  ) => {
+    try {
+      await productModel.create(
+        uuidv4(),
+        shopId,
+        categoryId,
+        name,
+        description,
+        image,
+        price,
+        remainingStock
+      );
     } catch (err) {
       return null;
     }
