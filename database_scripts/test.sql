@@ -1,0 +1,12 @@
+SELECT *
+FROM users;
+SELECT *
+FROM shops;
+SELECT *
+FROM categories;
+SELECT *
+FROM products;
+SELECT *
+FROM orders;
+SELECT *
+FROM order_detail;

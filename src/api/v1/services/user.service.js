@@ -1,10 +1,21 @@
+/* eslint-disable camelcase */
 const bcrypt = require('bcrypt');
+const { v4: uuidv4 } = require('uuid');
 
 const userModel = require('../models/user.model');
+const usersModel = require('../models/users.model');
 
 module.exports = {
-  createUser: async (username, password) => {
-    const id = await userModel.create(username, password);
+  createUser: async (username, email, password, name, address) => {
+    const userId = uuidv4();
+    const id = await usersModel.createAccount(
+      userId,
+      username,
+      email,
+      password,
+      name,
+      address
+    );
 
     return id;
   },
@@ -31,5 +42,16 @@ module.exports = {
     }
 
     return false;
+  },
+  getInfor: async (id) => {
+    try {
+      const infor = await usersModel.getInfo(id);
+      console.log(infor);
+      if (infor) return infor;
+    } catch (err) {
+      console.log('get information for user ###', err);
+    }
+
+    return null;
   },
 };

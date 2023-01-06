@@ -1,9 +1,16 @@
 /* eslint-disable global-require */
-const express = require('express');
+const express = require("express");
 
 const router = express.Router();
 
-const routes = [require('./routes/util.route'), require('./routes/auth.route')];
+const routes = [
+  require("./routes/auth.route"),
+  require("./routes/util.route"),
+  require("./routes/order.route"),
+  require("./routes/shop.route"),
+  require("./routes/user.route"),
+  require("./routes/product.route")
+];
 
 router.use(routes);
 

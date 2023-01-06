@@ -7,10 +7,16 @@ passport.use(
   new LocalStrategy(async (username, password, cb) => {
     try {
       const id = await checkUserExists(username);
-      if (!id) return cb(null, false);
+      if (!id) {
+        console.log('Khong tim thay id');
+        return cb(null, false);
+      }
 
       const isValid = await checkUserValid(id, password);
-      if (!isValid) return cb(null, false);
+      if (!isValid) {
+        console.log('Khong dung password');
+        return cb(null, false);
+      }
 
       return cb(null, {
         id,
